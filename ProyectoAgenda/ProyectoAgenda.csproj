@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contacto.cs" />
+    <Compile Include="frmContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContacto.Designer.cs">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmContactos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmContacto.resx">
+      <DependentUpon>frmContacto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmContactos.resx">
       <DependentUpon>frmContactos.cs</DependentUpon>
     </EmbeddedResource>

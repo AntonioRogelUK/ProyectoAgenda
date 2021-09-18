@@ -12,6 +12,16 @@ namespace ProyectoAgenda
     {
         private string connectionString;
 
+        public int ContactoId { get; set; }
+        public DateTime FechaCaptura { get; set; }
+        public string Nombre { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string Email { get; set; }
+        public string TelefonoParticular { get; set; }
+        public string TelefonoCelular { get; set; }
+        public bool Activo { get; set; }
+
+
         public Contacto()
         {
             // ConnectionString cuando es con la seguridad de SQL
@@ -78,6 +88,88 @@ namespace ProyectoAgenda
                 throw new Exception(ex.Message);
             }
             
+        }
+
+        public DataTable ObtenerContactosPorNombre(string nombre)
+        {
+            try
+            {
+                string query = "SELECT * FROM Contactos WHERE Activo = 1 AND Nombre like '%' + @Nombre + '%'";
+
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Parameters.AddWithValue("@Nombre", nombre.Trim());
+
+                try
+                {
+                    sqlConnection.Open();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                    DataTable dtContactos = new DataTable();
+                    sqlDataAdapter.Fill(dtContactos);
+                    return dtContactos;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    sqlConnection.Close();
+                    sqlConnection.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public void AgregarContacto(Contacto contacto) 
+        {
+            try
+            {
+                string query = "INSERT INTO Contactos (FechaCaptura, Nombre, FechaNacimiento, Email, TelefonoParticular, TelefonoCelular, Activo) " +
+                                            "VALUES (GETDATE(), @Nombre, @FechaNacimiento, @Email, @TelefonoParticular, @TelefonoCelular, 1)";
+
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = CommandType.Text;
+
+                sqlCommand.Parameters.AddWithValue("@Nombre",contacto.Nombre);
+                sqlCommand.Parameters.AddWithValue("@FechaNacimiento", contacto.FechaNacimiento.ToString("yyyy-MM-dd"));
+                sqlCommand.Parameters.AddWithValue("@Email", contacto.Email);
+                sqlCommand.Parameters.AddWithValue("@TelefonoParticular", contacto.TelefonoParticular);
+                sqlCommand.Parameters.AddWithValue("@TelefonoCelular", contacto.TelefonoCelular);
+
+                try
+                {
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+
+                    //sqlCommand.ExecuteNonQuery();
+                    //sqlCommand.ExecuteReader();
+                    //sqlCommand.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally 
+                {
+                    sqlConnection.Close();
+                    sqlConnection.Dispose();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

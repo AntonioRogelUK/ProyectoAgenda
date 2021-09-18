@@ -38,7 +38,7 @@ namespace ProyectoAgenda
             try
             {
                 Contacto contacto = new Contacto();
-                dtvContactos.DataSource = contacto.ObtenerContactos();
+                dtvContactos.DataSource = contacto.ObtenerContactosPorNombre(txtNombre.Text);
             }
             catch (Exception ex)
             {
