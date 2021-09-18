@@ -32,6 +32,7 @@ namespace ProyectoAgenda
             this.dtvContactos = new System.Windows.Forms.DataGridView();
             this.btnProbarConn = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnConsultaInactivos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtvContactos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@ namespace ProyectoAgenda
             this.dtvContactos.Location = new System.Drawing.Point(12, 76);
             this.dtvContactos.Name = "dtvContactos";
             this.dtvContactos.ReadOnly = true;
-            this.dtvContactos.Size = new System.Drawing.Size(741, 339);
+            this.dtvContactos.Size = new System.Drawing.Size(732, 315);
             this.dtvContactos.TabIndex = 0;
             // 
             // btnProbarConn
@@ -69,11 +70,23 @@ namespace ProyectoAgenda
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
+            // btnConsultaInactivos
+            // 
+            this.btnConsultaInactivos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConsultaInactivos.Location = new System.Drawing.Point(624, 397);
+            this.btnConsultaInactivos.Name = "btnConsultaInactivos";
+            this.btnConsultaInactivos.Size = new System.Drawing.Size(120, 23);
+            this.btnConsultaInactivos.TabIndex = 3;
+            this.btnConsultaInactivos.Text = "Consultar inactivos";
+            this.btnConsultaInactivos.UseVisualStyleBackColor = true;
+            this.btnConsultaInactivos.Click += new System.EventHandler(this.btnConsultaInactivos_Click);
+            // 
             // frmContactos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 478);
+            this.ClientSize = new System.Drawing.Size(756, 454);
+            this.Controls.Add(this.btnConsultaInactivos);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnProbarConn);
             this.Controls.Add(this.dtvContactos);
@@ -89,6 +102,7 @@ namespace ProyectoAgenda
         private System.Windows.Forms.DataGridView dtvContactos;
         private System.Windows.Forms.Button btnProbarConn;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnConsultaInactivos;
     }
 }
 

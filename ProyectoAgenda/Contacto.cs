@@ -41,17 +41,18 @@ namespace ProyectoAgenda
             }
         }
 
-        public DataTable ObtenerContactos() 
+        public DataTable ObtenerContactos(bool activo = true) 
         {
             try
             {
-                string query = "SELECT * FROM Contactos";
-
+                string query = "SELECT * FROM Contactos WHERE Activo = @Activo";
+                
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 
                 sqlCommand.CommandType = CommandType.Text;
-
+                sqlCommand.Parameters.AddWithValue("@Activo", activo);
+                
                 try
                 {
                     sqlConnection.Open();

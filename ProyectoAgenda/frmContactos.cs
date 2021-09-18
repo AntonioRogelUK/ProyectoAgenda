@@ -46,5 +46,18 @@ namespace ProyectoAgenda
             }
             
         }
+
+        private void btnConsultaInactivos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Contacto contacto = new Contacto();
+                dtvContactos.DataSource = contacto.ObtenerContactos(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
