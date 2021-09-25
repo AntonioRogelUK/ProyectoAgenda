@@ -19,6 +19,11 @@ namespace ProyectoAgenda
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
             try
             {
                 Contacto contacto = new Contacto();
@@ -29,7 +34,7 @@ namespace ProyectoAgenda
                 contacto.TelefonoCelular = txtTelefonoCelular.Text;
 
                 contacto.AgregarContacto(contacto);
-                
+
             }
             catch (Exception ex)
             {

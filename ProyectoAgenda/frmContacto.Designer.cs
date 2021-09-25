@@ -30,8 +30,6 @@ namespace ProyectoAgenda
         private void InitializeComponent()
         {
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
@@ -43,6 +41,8 @@ namespace ProyectoAgenda
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEliminar
@@ -53,25 +53,6 @@ namespace ProyectoAgenda
             this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(226, 139);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(307, 139);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // chkActivo
             // 
@@ -164,11 +145,32 @@ namespace ProyectoAgenda
             this.label5.TabIndex = 2;
             this.label5.Text = "Celular";
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(226, 139);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 5;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(307, 139);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 5;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // frmContacto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 190);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtTelefonoCelular);
             this.Controls.Add(this.txtTelefonoParticular);
             this.Controls.Add(this.txtEmail);
@@ -180,8 +182,6 @@ namespace ProyectoAgenda
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkActivo);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Name = "frmContacto";
             this.Text = "Contacto";
@@ -193,8 +193,6 @@ namespace ProyectoAgenda
         #endregion
 
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
@@ -206,5 +204,7 @@ namespace ProyectoAgenda
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
